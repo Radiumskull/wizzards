@@ -18,6 +18,7 @@ class _EventListState extends State<EventList> {
       return Column(
         children: <Widget>[
           ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             reverse: true,
             itemCount: events.length - 1,

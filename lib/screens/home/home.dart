@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wizzards/Screens/Home/CustomDrawer/CustomDrawer.dart';
 import 'package:wizzards/Screens/Home/EventInformation/EventInformation.dart';
+import 'package:wizzards/Screens/Home/EventInformation/EventList.dart';
 import 'package:wizzards/Screens/Home/PointsChart/PointsChartPage.dart';
 import 'package:wizzards/Services/Auth.dart';
 
@@ -16,22 +17,28 @@ class Home extends StatelessWidget {
           FlatButton(
             child: Text("Logout"),
             onPressed: () async {
-             await _auth.signOut();
+              await _auth.signOut();
             },
           ),
         ],
         title: Text("Wizzards"),
       ),
-      body: Container(child : Column(
-        children: <Widget>[
-          Container(
-            height: 350,
-          child : PointsChartPage(),
-          ),
-          Text("Events", style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),),
-          Expanded( child: EventInformation()),
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 350,
+              child: PointsChartPage(),
+            ),
+            Text(
+              "Events",
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 500, child: EventInformation()),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

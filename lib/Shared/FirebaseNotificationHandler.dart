@@ -5,10 +5,10 @@ class FirebaseNotifications {
 
   void setUpFirebase() {
     _firebaseMessaging = FirebaseMessaging();
-    firebaseCloudMessaging_Listeners();
+    firebaseCloudMessagingListeners();
   }
 
-  void firebaseCloudMessaging_Listeners() {
+  void firebaseCloudMessagingListeners() {
     _firebaseMessaging.getToken().then((token) {
       print(token);
     });
