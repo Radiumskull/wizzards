@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:wizzards/Services/Auth.dart';
 import 'package:wizzards/Shared/Loading.dart';
-import 'package:grouped_buttons/grouped_buttons.dart';
 class Register extends StatefulWidget {
   final Function toggleView;
 Register({this.toggleView});

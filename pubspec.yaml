@@ -25,7 +25,7 @@ dependencies:
   flutter_spinkit: ^4.1.1+1
   splashscreen :
   grouped_buttons: ^1.0.4
-  audioplayers: ^0.14.0
+  firebase_messaging: ^6.0.9
   carousel_pro: ^1.0.0
   
 

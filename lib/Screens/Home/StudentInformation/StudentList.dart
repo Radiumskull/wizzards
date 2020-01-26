@@ -14,23 +14,29 @@ class _StudentListState extends State<StudentList> {
   Widget build(BuildContext context) {
     int vegFood = 0;
     final students = Provider.of<List<UserData>>(context);
-    if (students == null){
-      print("students is null");
+    if (students == null) {
       return Container();
-    }
-    else{
-      for (int i = 0; i < students.length; i++){
-        if (students[i].food == "Veg"){
+    } else {
+      for (int i = 0; i < students.length; i++) {
+        if (students[i].food == "Veg") {
           vegFood += 1;
         }
       }
-    return Column(
-      children: <Widget>[
-        StudentDash(studentsCounts : students.length, vegFood: vegFood,),
-        ListView.builder(shrinkWrap:true, itemCount : students.length ,itemBuilder: (context, index){
-          return (StudentTile(index : index,student : students[index]));
-        },)
-      ],
-    );}
+      return Column(
+        children: <Widget>[
+          StudentDash(
+            studentsCounts: students.length,
+            vegFood: vegFood,
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: students.length,
+            itemBuilder: (context, index) {
+              return (StudentTile(index: index, student: students[index]));
+            },
+          )
+        ],
+      );
+    }
   }
 }

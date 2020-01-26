@@ -22,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  audioplayers:
-    dependency: "direct main"
-    description:
-      name: audioplayers
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.14.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -134,6 +127,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.1+2"
+  firebase_messaging:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.9"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -219,13 +219,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.4"
-  path_provider:
-    dependency: transitive
-    description:
-      name: path_provider
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.5.1"
   pedantic:
     dependency: transitive
     description:
@@ -322,13 +315,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.6"
-  uuid:
-    dependency: transitive
-    description:
-      name: uuid
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.4"
   vector_math:
     dependency: transitive
     description:
