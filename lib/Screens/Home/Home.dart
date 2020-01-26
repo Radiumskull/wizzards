@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wizzards/Screens/Home/CustomDrawer/CustomDrawer.dart';
 import 'package:wizzards/Screens/Home/EventInformation/EventInformation.dart';
-import 'package:wizzards/Services/auth.dart';
+import 'package:wizzards/Screens/Home/PointsChart/PointsChartPage.dart';
+import 'package:wizzards/Services/Auth.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -10,6 +11,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(0, 255, 255, 255),
         actions: <Widget>[
           FlatButton(
             child: Text("Logout"),
@@ -20,11 +22,16 @@ class Home extends StatelessWidget {
         ],
         title: Text("Wizzards"),
       ),
-      body: Column(
+      body: Container(child : Column(
         children: <Widget>[
+          Container(
+            height: 350,
+          child : PointsChartPage(),
+          ),
+          Text("Events", style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),),
           Expanded( child: EventInformation()),
         ],
       ),
-    );
+    ));
   }
 }

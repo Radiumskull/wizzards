@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wizzards/Services/auth.dart';
+import 'package:wizzards/Services/Auth.dart';
 import 'package:provider/provider.dart';
 import 'package:wizzards/Shared/SplashScreen.dart';
 

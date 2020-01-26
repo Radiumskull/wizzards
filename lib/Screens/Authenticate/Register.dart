@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:wizzards/Services/auth.dart';
+import 'package:wizzards/Services/Auth.dart';
 import 'package:wizzards/Shared/Loading.dart';
 import 'package:grouped_buttons/grouped_buttons.dart';
 class Register extends StatefulWidget {
@@ -11,59 +11,49 @@ Register({this.toggleView});
 }
 
 class _RegisterState extends State<Register> {
+  String name = '';
+  String email = '';
+  String food = '';
+  String password = '';
   String _picked = "NonVeg";
   bool loading = false;
   bool veg = false;
   bool nonVeg = false;
+  int _radioValue = -1;
+  void _foodRadioHandler(int value){
+    setState(() {
+      _radioValue = value;
+      switch(_radioValue){
+        case 0 :
+          food = "Veg";
+          break;
+        case 1:
+          food = "NonVeg";
+          break;
+      }
+    });
+
+
+  }
 
   @override
   Widget build(BuildContext context) {
-    String name = '';
-    String email = '';
-    String password = '';
-    String food = '';
-    String error = '';
+
     final AuthService _auth = AuthService();
     final _formKey = GlobalKey<FormState>();
     return loading? Loading() :
     Scaffold(
-        body : Form(
+        body : Column(
+            mainAxisAlignment : MainAxisAlignment.spaceEvenly ,children : <Widget> [ Form(
           key: _formKey,
           child: Container (
-            padding: EdgeInsets.only(left: 20, right: 20, top: 60),
+            padding: EdgeInsets.only(left: 40, right: 40, top: 40),
             child : Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Container (padding: EdgeInsets.only(left: 30, right: 30), child : Text("SignUp", style: TextStyle(fontSize: 36, fontWeight: FontWeight.w500),)),
 
-
-                Row ( mainAxisAlignment : MainAxisAlignment.spaceBetween, children: <Widget>[
-                  RaisedButton(
-                    child: Text("SignIn"),
-                    onPressed: (){
-                      widget.toggleView();
-                    },
-                  ),
-                  Container (padding: EdgeInsets.only(left: 30, right: 30), child : Text("SignUp", style: TextStyle(fontSize: 36, fontWeight: FontWeight.w500),)),
-                  RaisedButton(
-                    child: Text("SignUp"),
-                    onPressed: () async {
-                      if (_formKey.currentState.validate()){
-                        setState(() =>  loading = true);
-                          dynamic result = await _auth.registerWithEmailAndPassword(
-                              name, email, password, _picked);
-                          if (result == null) {
-                            setState(() {
-                              loading = false;
-                              error = "Enter Valid Email";
-                            });
-                          }
-
-                      }
-
-                    },
-                  ),
-                ],),
-                SizedBox(height: 60,),
+                SizedBox(height: 20,),
                 TextFormField(
                   validator: (val) => val.isEmpty ? 'Enter an Email' : null,
                   style: TextStyle(fontSize: 18),
@@ -97,29 +87,76 @@ class _RegisterState extends State<Register> {
 //                    food = txt;
 //                  },
 //                ),
-              RadioButtonGroup(
-                orientation: GroupedButtonsOrientation.HORIZONTAL,
-                margin: const EdgeInsets.only(left: 20.0,),
-                onSelected: (String selected) => setState((){
-                  _picked = selected;
-                  print(_picked);
-                }),
-                labels: <String>[
-                  "Veg",
-                  "NonVeg",
-                ],
-                picked: _picked,
-                itemBuilder: (Radio rb, Text txt, int i){
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      rb,
-                      txt,
-                    ],
-                  );
-                },
-              ),]),
-        )));
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Text("Vegeterian", style: TextStyle(fontWeight: FontWeight.w400),),
+                        Radio(
+                          value: 0,
+                          groupValue: _radioValue,
+                          onChanged: _foodRadioHandler,
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text("Non- Vegeterian", style: TextStyle(fontWeight: FontWeight.w400),),
+                        Radio(
+                          value: 1,
+                          groupValue: _radioValue,
+                          onChanged: _foodRadioHandler,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ],),),),
+                Row (
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment : MainAxisAlignment.spaceEvenly, children: <Widget>[
+
+                  ButtonTheme(
+                    minWidth: 125.0,
+                    height: 50.0,
+                    child:RaisedButton(
+
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0)
+                      ),
+                      child: Text("SignIn"),
+                      onPressed: (){
+                        widget.toggleView();
+                      },
+                    ),
+                  ),
+                  ButtonTheme(
+                    minWidth: 125.0,
+                    height: 50.0,
+                    child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
+                      child: Text("SignUp"),
+                      onPressed: () async {
+                        if (_formKey.currentState.validate()){
+                          setState(() =>  loading = true);
+                          dynamic result = await _auth.registerWithEmailAndPassword(
+                              name, email, password, _picked);
+                          if (result == null) {
+                            setState(() {
+                              loading = false;
+                            });
+                          }
+
+                        }
+
+                      },
+                    ),
+                  ),
+
+                ])]));
   }
 }
 

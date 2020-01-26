@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wizzards/Screens/Home/CarousalPage/Carousal.dart';
 import 'package:wizzards/Screens/Home/CustomDrawer/LoggedUserInfo.dart';
-import 'package:wizzards/Screens/Home/PointsChart/PointsChartPage.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentInformation.dart';
 import 'package:wizzards/Services/DatabaseService.dart';
 import 'package:wizzards/Models/User.dart';
@@ -25,7 +24,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             children: <Widget>[
               LoggedUserInfo(),
               FlatButton(
-                child: Text("Students Dashboard", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                child: Text("Students Dashboard", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -34,16 +33,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 },
               ),
               FlatButton(
-                child: Text("Points Chart", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) => PointsChartPage()));
-                },
-              ),
-              FlatButton(
-                child: Text("Carousal", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                child: Text("Throwback to Neophytes", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
                 onPressed: () {
                   Navigator.push(
                       context,
