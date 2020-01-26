@@ -23,6 +23,7 @@ class _StudentListState extends State<StudentList> {
         }
       }
       return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           StudentDash(
             studentsCounts: students.length,

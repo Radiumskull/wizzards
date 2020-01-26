@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+
 class StudentDash extends StatelessWidget {
   final int studentsCounts;
   final int vegFood;
@@ -7,7 +7,8 @@ class StudentDash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container( child : Row(
+    return Container(
+        child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Container(
@@ -15,13 +16,18 @@ class StudentDash extends StatelessWidget {
           height: 150,
           width: 180,
           child: Card(
-            child: Column(
-              children: <Widget>[
-                Text(studentsCounts.toString(), style: TextStyle(fontSize: 64, fontWeight: FontWeight.w600),),
-                Text("Enrolled", style: TextStyle(fontSize: 36, fontWeight: FontWeight.w600),)
-              ],
-            )
-          ),
+              child: Column(
+            children: <Widget>[
+              Text(
+                studentsCounts.toString(),
+                style: TextStyle(fontSize: 64, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                "Enrolled",
+                style: TextStyle(fontSize: 36, fontWeight: FontWeight.w600),
+              )
+            ],
+          )),
         ),
         Container(
           margin: EdgeInsets.only(top: 40),
@@ -29,14 +35,18 @@ class StudentDash extends StatelessWidget {
           width: 180,
           child: Card(
               child: Column(
-                children: <Widget>[
-                  Text(vegFood.toString(), style: TextStyle(fontSize: 64, fontWeight: FontWeight.w600),),
-                  Text("Veg", style: TextStyle(fontSize: 36, fontWeight: FontWeight.w600),)
-                ],
+            children: <Widget>[
+              Text(
+                vegFood.toString(),
+                style: TextStyle(fontSize: 64, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                "Veg",
+                style: TextStyle(fontSize: 36, fontWeight: FontWeight.w600),
               )
-          ),
+            ],
+          )),
         ),
-        Container(),
       ],
     ));
   }
