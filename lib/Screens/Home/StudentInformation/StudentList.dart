@@ -34,7 +34,7 @@ class _StudentListState extends State<StudentList> {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: students.length,
             itemBuilder: (context, index) {
-              return (StudentTile(index: index, student: students[index]));
+              return (StudentTile(index: index, userData: students[index]));
             },
           )
         ],

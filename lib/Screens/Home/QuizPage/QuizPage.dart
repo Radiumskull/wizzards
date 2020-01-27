@@ -1,4 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
+import 'package:wizzards/Models/User.dart';
+import 'package:wizzards/Services/DatabaseService.dart';
 
 import './quiz.dart';
 import './result.dart';
@@ -175,7 +178,7 @@ class _QuizPageState extends State<QuizPage> {
           "scores": 73,
         },
         {
-          "text": "Dusk?",
+          "text": "Right",
           "scoreg": 71,
           "scorer": 30,
           "scoreh": 71,
@@ -293,7 +296,7 @@ class _QuizPageState extends State<QuizPage> {
       ],
     },
     {
-      'questiontext': "What kind of instrument most pleases your ear?",
+      'questiontext': "What trait you doesn't associate yourself with?",
       "answertext": [
         {
           "text": "Selfish.",
@@ -361,8 +364,9 @@ class _QuizPageState extends State<QuizPage> {
   ];
 
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return StreamProvider<List<UserData>>.value(
+      value: DatabaseService().students,
+      child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton.extended(
           icon: Icon(Icons.arrow_back_ios),

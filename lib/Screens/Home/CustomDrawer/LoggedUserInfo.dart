@@ -10,6 +10,7 @@ class LoggedUserInfo extends StatelessWidget {
     Image profImage;
     if (userData == null) {
       primaryColor = Colors.white;
+      return Container();
     } else {
       if (userData.house == "hufflepuff") {
         primaryColor = Color.fromARGB(255, 255, 157, 10);

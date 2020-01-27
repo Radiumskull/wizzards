@@ -10,18 +10,7 @@ class StudentDash extends StatelessWidget {
     return Container(
         padding: EdgeInsets.only(bottom: 40),
         decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 20.0, // has the effect of softening the shadow
-                spreadRadius: 5.0, // has the effect of extending the shadow
-                offset: Offset(
-                  10.0, // horizontal, move right 10
-                  10.0, // vertical, move down 10
-                ),
-              )
-            ],
-            color: Colors.black12,
+            color: Colors.black26,
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50))),

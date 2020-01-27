@@ -8,31 +8,63 @@ class Result extends StatelessWidget {
   final int resultscorer;
   final int resultscores;
   final int resultscoreh;
-
+  String finalHouse = "";
+  int finalHouseCount = 0;
   void updateHouse(String house, BuildContext context) async {
     try {
-      final user = await Provider.of<User>(context);
+      final user = Provider.of<User>(context);
       await DatabaseService(uid: user.uid).updateHouseData(house);
     } catch (e) {
       print(e.toString());
     }
   }
 
-  String calc() {
-    if (resultscoreg > resultscorer &&
-        resultscoreg > resultscoreh &&
-        resultscoreg > resultscores)
-      return "Gryffindor";
-    else if (resultscorer > resultscoreg &&
-        resultscorer > resultscoreh &&
-        resultscorer > resultscores)
-      return "Ravenclaw";
-    else if (resultscoreh > resultscoreg &&
-        resultscoreh > resultscorer &&
-        resultscoreh > resultscores)
-      return "Hufflepuff";
-    else
-      return "Slytherin";
+  List<int> initCounts(BuildContext context) {
+    final students = Provider.of<List<UserData>>(context);
+    if (students != null) {
+      List<int> houseCounts = [0, 0, 0, 0];
+      for (int index = 0; index < students.length; index++) {
+        if (students[index].house == 'gryffindor') {
+          houseCounts[0] += 1;
+        } else if (students[index].house == 'hufflepuff') {
+          houseCounts[1] += 1;
+        } else if (students[index].house == 'ravenclaw') {
+          houseCounts[2] += 1;
+        } else if (students[index].house == 'slytherin') {
+          houseCounts[3] += 1;
+        }
+      }
+
+      print(houseCounts);
+      return houseCounts;
+    }
+  }
+
+  void allotHouse(BuildContext context) async {
+    List<int> houseCounts = initCounts(context);
+    if (houseCounts != null) {
+      if (resultscoreg > resultscorer &&
+          resultscoreg > resultscoreh &&
+          resultscoreg > resultscores) {
+        if (houseCounts[0] < 15) {
+          finalHouse = "Gryffindor";
+        }
+      } else if (resultscorer > resultscoreg &&
+          resultscorer > resultscoreh &&
+          resultscorer > resultscores) {
+        if (houseCounts[2] < 15) {
+          finalHouse = "Ravenclaw";
+        }
+      } else if (resultscoreh > resultscoreg &&
+          resultscoreh > resultscorer &&
+          resultscoreh > resultscores) {
+        if (houseCounts[1] < 15) {
+          finalHouse = "Hufflepuff";
+        }
+      } else {
+        finalHouse = "Slytherin";
+      }
+    }
   }
 
   Result(this.resultscoreg, this.resultscorer, this.resultscores,
@@ -40,28 +72,35 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    updateHouse(calc().toLowerCase(), context);
+    allotHouse(context);
+    updateHouse(finalHouse.toLowerCase(), context);
     Color bgColor;
-    if (calc() == "Gryffindor") {
+    if (finalHouse == "Gryffindor") {
       bgColor = Color.fromARGB(255, 102, 0, 0);
-    } else if (calc() == "Hufflepuff") {
+    } else if (finalHouse == "Hufflepuff") {
       bgColor = Color.fromARGB(255, 255, 157, 10);
-    } else if (calc() == "Slytherin") {
+    } else if (finalHouse == "Slytherin") {
       bgColor = Color.fromARGB(255, 46, 117, 28);
-    } else if (calc() == "Ravenclaw") {
+    } else if (finalHouse == "Ravenclaw") {
       bgColor = Color.fromARGB(255, 25, 57, 86);
     } else {
       bgColor = Colors.white;
     }
+
     return Container(
       color: bgColor,
       child: Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Image.asset('assets/images/${calc().toLowerCase()}.png'),
+              finalHouse == ""
+                  ? SizedBox(
+                      height: 1,
+                    )
+                  : Image.asset(
+                      'assets/images/${finalHouse.toLowerCase()}.png'),
               Text(
-                calc(),
+                finalHouse,
                 style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -76,3 +115,20 @@ class Result extends StatelessWidget {
     );
   }
 }
+
+// Future calc() async {
+//   if (resultscoreg > resultscorer &&
+//       resultscoreg > resultscoreh &&
+//       resultscoreg > resultscores)
+//     return "Gryffindor";
+//   else if (resultscorer > resultscoreg &&
+//       resultscorer > resultscoreh &&
+//       resultscorer > resultscores)
+//     return "Ravenclaw";
+//   else if (resultscoreh > resultscoreg &&
+//       resultscoreh > resultscorer &&
+//       resultscoreh > resultscores)
+//     return "Hufflepuff";
+//   else
+//     return "Slytherin";
+// }
