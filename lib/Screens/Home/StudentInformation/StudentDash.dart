@@ -8,48 +8,82 @@ class StudentDash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Container(
-          margin: EdgeInsets.only(top: 20),
-          height: 150,
-          width: 180,
-          child: Card(
-              elevation: 10,
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    studentsCounts.toString(),
-                    style: TextStyle(fontSize: 64, fontWeight: FontWeight.w600),
-                  ),
-                  Text(
-                    "Enrolled",
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.w600),
-                  )
-                ],
-              )),
-        ),
-        Container(
-          margin: EdgeInsets.only(top: 20),
-          height: 150,
-          width: 180,
-          child: Card(
-              elevation: 10,
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    vegFood.toString(),
-                    style: TextStyle(fontSize: 64, fontWeight: FontWeight.w600),
-                  ),
-                  Text(
-                    "Veg",
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.w600),
-                  )
-                ],
-              )),
-        ),
-      ],
-    ));
+        padding: EdgeInsets.only(bottom: 40),
+        decoration: BoxDecoration(
+            color: Colors.black26,
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(50),
+                bottomRight: Radius.circular(50))),
+        child: Column(children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(top: 30),
+            child: Text(
+              "Students",
+              style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  letterSpacing: 12),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(bottom: 10),
+            child: Text(
+              "Dashboard",
+              style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  letterSpacing: 12),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                height: 150,
+                width: 180,
+                child: Card(
+                    elevation: 10,
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          studentsCounts.toString(),
+                          style: TextStyle(
+                              fontSize: 64, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          "Enrolled",
+                          style: TextStyle(
+                              fontSize: 36, fontWeight: FontWeight.w600),
+                        )
+                      ],
+                    )),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                height: 150,
+                width: 180,
+                child: Card(
+                    elevation: 10,
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          vegFood.toString(),
+                          style: TextStyle(
+                              fontSize: 64, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          "Veg",
+                          style: TextStyle(
+                              fontSize: 36, fontWeight: FontWeight.w600),
+                        )
+                      ],
+                    )),
+              ),
+            ],
+          ),
+        ]));
   }
 }

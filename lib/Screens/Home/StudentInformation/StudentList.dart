@@ -25,28 +25,6 @@ class _StudentListState extends State<StudentList> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: Text(
-              "Students",
-              style: TextStyle(
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  letterSpacing: 12),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "Dashboard",
-              style: TextStyle(
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  letterSpacing: 12),
-            ),
-          ),
           StudentDash(
             studentsCounts: students.length,
             vegFood: vegFood,

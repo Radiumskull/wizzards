@@ -16,7 +16,7 @@ class _CarousalState extends State<Carousal> {
       body: Container(
         height: 400,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           child: Stack(
             children: <Widget>[
               Carousel(
