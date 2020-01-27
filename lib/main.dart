@@ -23,6 +23,7 @@ class _MyAppState extends State<MyApp> {
     return StreamProvider.value(
       value: AuthService().user,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Wizzards',
         theme: ThemeData(
           primarySwatch: Colors.red,
