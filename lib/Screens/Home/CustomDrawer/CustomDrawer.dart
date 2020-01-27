@@ -4,6 +4,8 @@ import 'package:wizzards/Screens/Home/CustomDrawer/LoggedUserInfo.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentInformation.dart';
 
 class CustomDrawer extends StatefulWidget {
+  final Color secondaryColor;
+  CustomDrawer(this.secondaryColor);
   @override
   _CustomDrawerState createState() => _CustomDrawerState();
 }
@@ -13,7 +15,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Color(0xbbe1fa),
+        color: widget.secondaryColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[

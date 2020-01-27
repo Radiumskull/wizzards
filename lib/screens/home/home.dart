@@ -21,21 +21,21 @@ class Home extends StatelessWidget {
       return Scaffold(body: Loading());
     } else {
       if (userData.house == "hufflepuff") {
-        primaryColor = Colors.yellow;
-        secondaryColor = Colors.black;
+        primaryColor = Color.fromARGB(255, 255, 157, 10);
+        secondaryColor = Color.fromARGB(100, 31, 30, 25);
       } else if (userData.house == "gryffindor") {
-        primaryColor = Colors.red;
-        secondaryColor = Colors.yellowAccent;
+        primaryColor = Color.fromARGB(255, 102, 0, 0);
+        secondaryColor = Color.fromARGB(150, 224, 157, 9);
       } else if (userData.house == "ravenclaw") {
-        primaryColor = Colors.blue;
-        secondaryColor = Colors.black;
+        primaryColor = Color.fromARGB(255, 25, 57, 86);
+        secondaryColor = Color.fromARGB(150, 142, 80, 28);
       } else if (userData.house == "slytherin") {
-        primaryColor = Colors.green;
-        secondaryColor = Colors.grey;
+        primaryColor = Color.fromARGB(255, 46, 117, 28);
+        secondaryColor = Color.fromARGB(100, 204, 204, 204);
       }
 
       return Scaffold(
-        drawer: CustomDrawer(),
+        drawer: CustomDrawer(secondaryColor),
         appBar: AppBar(
           backgroundColor: primaryColor,
           actions: <Widget>[
@@ -66,7 +66,7 @@ class Home extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 PointsChartPage(),
-                SizedBox(height: 500, child: EventInformation()),
+                EventInformation(),
               ],
             ),
           ),

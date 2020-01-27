@@ -101,7 +101,7 @@ class _PointsChartState extends State<PointsChart> {
                   animatedDuration: Duration(milliseconds: 500),
                   borderColor: Colors.black,
                   borderWidth: 1,
-                  progressColor: Color.fromARGB(255, 238, 225, 23),
+                  progressColor: Color.fromARGB(255, 255, 157, 10),
                   borderRadius: 20,
                   maxValue: 100,
                   backgroundColor: Colors.white,
