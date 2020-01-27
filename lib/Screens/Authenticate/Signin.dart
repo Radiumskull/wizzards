@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wizzards/Services/Auth.dart';
 import 'package:wizzards/Shared/Loading.dart';
@@ -101,6 +102,7 @@ class _SigninState extends State<Signin> {
                               if (result == null) {
                                 setState(() {
                                   loading = false;
+                                  error = "Enter Correct Credentials";
                                 });
                               }
                             }
@@ -138,28 +140,3 @@ class _SigninState extends State<Signin> {
             ));
   }
 }
-//Row ( mainAxisAlignment : MainAxisAlignment.spaceBetween, children: <Widget>[
-//RaisedButton(
-//child: Text("SignUp"),
-//onPressed: (){
-//widget.toggleView();
-//},
-//),
-
-//RaisedButton(
-//child: Text("SignIn"),
-//onPressed: () async {
-//if (_formKey.currentState.validate()){
-//setState(() =>  loading = true);
-//dynamic result = await _auth.signInWithEmailAndPassword(email, password);
-//if (result == null) {
-//setState(() {
-//loading = false;
-//error = "Enter Valid Email";
-//});
-//}
-//}
-//
-//},
-//),
-//],),

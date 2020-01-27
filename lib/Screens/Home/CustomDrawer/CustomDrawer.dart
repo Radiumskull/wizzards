@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wizzards/Screens/Home/CarousalPage/CarousalPage.dart';
 import 'package:wizzards/Screens/Home/CustomDrawer/LoggedUserInfo.dart';
-import 'package:wizzards/Screens/Home/CarousalPage/Carousal.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentInformation.dart';
 import 'package:wizzards/Services/DatabaseService.dart';
 import 'package:wizzards/Models/User.dart';

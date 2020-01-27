@@ -168,8 +168,9 @@ class _RegisterState extends State<Register> {
 }
 
 class GroupedRadioButton extends StatefulWidget {
-  Function foodToggle;
+  final Function foodToggle;
   GroupedRadioButton({this.foodToggle});
+
   @override
   _GroupedRadioButtonState createState() => _GroupedRadioButtonState();
 }
