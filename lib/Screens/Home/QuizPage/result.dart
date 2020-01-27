@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wizzards/Models/User.dart';
+import 'package:wizzards/Services/DatabaseService.dart';
 
 class Result extends StatelessWidget {
   final int resultscoreg;
   final int resultscorer;
   final int resultscores;
   final int resultscoreh;
+
+  void updateHouse(String house, BuildContext context) async {
+    try {
+      final user = await Provider.of<User>(context);
+      await DatabaseService(uid: user.uid).updateHouseData(house);
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   String calc() {
     if (resultscoreg > resultscorer &&
@@ -28,6 +40,7 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    updateHouse(calc().toLowerCase(), context);
     Color bgColor;
     if (calc() == "Gryffindor") {
       bgColor = Color.fromARGB(255, 102, 0, 0);

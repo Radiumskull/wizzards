@@ -6,11 +6,10 @@ class LoggedUserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userData = Provider.of<UserData>(context);
-    Color primaryColor = Colors.white;
+    Color primaryColor;
     Image profImage;
     if (userData == null) {
       primaryColor = Colors.white;
-      return Drawer();
     } else {
       if (userData.house == "hufflepuff") {
         primaryColor = Color.fromARGB(255, 255, 157, 10);
@@ -20,6 +19,8 @@ class LoggedUserInfo extends StatelessWidget {
         primaryColor = Color.fromARGB(255, 25, 57, 86);
       } else if (userData.house == "slytherin") {
         primaryColor = Color.fromARGB(255, 46, 117, 28);
+      } else if (userData.house == "") {
+        primaryColor = Colors.black;
       }
       if (userData == null) {
         profImage = Image.asset(
@@ -46,6 +47,11 @@ class LoggedUserInfo extends StatelessWidget {
           profImage = Image.asset(
             'assets/images/slytherin.png',
             scale: 2,
+          );
+        } else if (userData.house == "") {
+          profImage = Image.asset(
+            'assets/images/hogwarts.png',
+            scale: 7,
           );
         }
       }

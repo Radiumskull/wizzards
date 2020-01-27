@@ -17,6 +17,12 @@ class DatabaseService {
     });
   }
 
+  Future updateHouseData(String house) async {
+    return await studentCollection.document(uid).updateData({
+      'house': house,
+    });
+  }
+
   List<UserData> _studentListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       return UserData(

@@ -16,8 +16,8 @@ class Home extends StatelessWidget {
     final userData = Provider.of<UserData>(context);
 
     if (userData == null) {
-      primaryColor = Colors.white;
-      secondaryColor = Colors.red;
+      primaryColor = Colors.black;
+      secondaryColor = Colors.white;
       return Scaffold(body: Loading());
     } else {
       if (userData.house == "hufflepuff") {
@@ -32,6 +32,9 @@ class Home extends StatelessWidget {
       } else if (userData.house == "slytherin") {
         primaryColor = Color.fromARGB(255, 46, 117, 28);
         secondaryColor = Color.fromARGB(100, 204, 204, 204);
+      } else {
+        primaryColor = Colors.black;
+        secondaryColor = Colors.white;
       }
 
       return Scaffold(

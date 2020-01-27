@@ -67,7 +67,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       children: <Widget>[
                         Icon(Icons.view_carousel),
                         Text(
-                          " Throwback To Neophytes",
+                          "Throwback To Neophytes",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w500),
                         ),
@@ -83,33 +83,35 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 },
               ),
             ),
-            // widget.house == '' ?
-            ButtonTheme(
-              height: 60,
-              child: FlatButton(
-                color: Color(0x3282b8),
-                child: Center(
-                  child: Container(
-                    width: double.infinity,
-                    child: Row(
-                      children: <Widget>[
-                        Icon(Icons.view_carousel),
-                        Text(
-                          " House Selection",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w500),
+            widget.house == ''
+                ? ButtonTheme(
+                    height: 60,
+                    child: FlatButton(
+                      color: Color(0x3282b8),
+                      child: Center(
+                        child: Container(
+                          width: double.infinity,
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.view_carousel),
+                              Text(
+                                "House Selection",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) => QuizPage()));
+                      },
                     ),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(context,
-                      new MaterialPageRoute(builder: (context) => QuizPage()));
-                },
-              ),
-            )
-            // : Container(),
+                  )
+                : Container(),
           ],
         ),
       ),
