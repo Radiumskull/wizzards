@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wizzards/Models/User.dart';
 import 'package:wizzards/Services/Auth.dart';
 import 'package:provider/provider.dart';
 import 'package:wizzards/Shared/SplashScreen.dart';
@@ -20,8 +21,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider.value(
-      value: AuthService().user,
+    return StreamProvider<User>(
+      create: (context) => AuthService().user,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Wizzards',
