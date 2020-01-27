@@ -7,25 +7,19 @@ class LoggedUserInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     final userData = Provider.of<UserData>(context);
     Color primaryColor = Colors.white;
-    Color secondaryColor = Colors.red;
     Image profImage;
     if (userData == null) {
       primaryColor = Colors.white;
-      secondaryColor = Colors.red;
       return Drawer();
     } else {
       if (userData.house == "hufflepuff") {
         primaryColor = Color.fromARGB(255, 255, 157, 10);
-        secondaryColor = Color.fromARGB(100, 31, 30, 25);
       } else if (userData.house == "gryffindor") {
         primaryColor = Color.fromARGB(255, 102, 0, 0);
-        secondaryColor = Color.fromARGB(150, 224, 157, 9);
       } else if (userData.house == "ravenclaw") {
         primaryColor = Color.fromARGB(255, 25, 57, 86);
-        secondaryColor = Colors.red;
       } else if (userData.house == "slytherin") {
         primaryColor = Color.fromARGB(255, 46, 117, 28);
-        secondaryColor = Color.fromARGB(100, 204, 204, 204);
       }
       if (userData == null) {
         profImage = Image.asset(

@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
       }
 
       return Scaffold(
-        drawer: CustomDrawer(secondaryColor),
+        drawer: CustomDrawer(secondaryColor, userData.house),
         appBar: AppBar(
           backgroundColor: primaryColor,
           actions: <Widget>[

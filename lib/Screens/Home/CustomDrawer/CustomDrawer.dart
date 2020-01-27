@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:wizzards/Screens/Home/CarousalPage/CarousalPage.dart';
 import 'package:wizzards/Screens/Home/CustomDrawer/LoggedUserInfo.dart';
+import 'package:wizzards/Screens/Home/QuizPage/QuizPage.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentInformation.dart';
 
 class CustomDrawer extends StatefulWidget {
   final Color secondaryColor;
-  CustomDrawer(this.secondaryColor);
+  final String house;
+  CustomDrawer(this.secondaryColor, this.house);
   @override
   _CustomDrawerState createState() => _CustomDrawerState();
 }
@@ -81,6 +83,33 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 },
               ),
             ),
+            // widget.house == '' ?
+            ButtonTheme(
+              height: 60,
+              child: FlatButton(
+                color: Color(0x3282b8),
+                child: Center(
+                  child: Container(
+                    width: double.infinity,
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.view_carousel),
+                        Text(
+                          " House Selection",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) => QuizPage()));
+                },
+              ),
+            )
+            // : Container(),
           ],
         ),
       ),
