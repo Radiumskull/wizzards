@@ -17,6 +17,17 @@ class _EventListState extends State<EventList> {
     } else {
       return Column(
         children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(top: 20, bottom: 10),
+            child: Text(
+              "Events",
+              style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  letterSpacing: 12),
+            ),
+          ),
           ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,

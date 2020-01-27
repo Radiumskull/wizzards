@@ -9,22 +9,26 @@ class EventTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-          child: ListTile(
+    return InkWell(
+      child: Card(
+        shape: RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(10.0)),
+        child: ListTile(
             contentPadding: EdgeInsets.all(20),
-              title: Center(
-                child: Text(
-                  event.eventHeadline,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
-                ),
+            title: Center(
+              child: Text(
+                event.eventHeadline,
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
               ),
-              subtitle: Column(
-                children: <Widget>[
-                  Text(event.eventDetails),
-                  Text(
-                      "Start Date : ${event.startDate} End Date : ${event.endDate}"),
-                ],
-              )),
-        );
+            ),
+            subtitle: Column(
+              children: <Widget>[
+                Text(event.eventDetails),
+                Text(
+                    "Start Date : ${event.startDate} End Date : ${event.endDate}"),
+              ],
+            )),
+      ),
+    );
   }
 }
