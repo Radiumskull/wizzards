@@ -16,9 +16,11 @@ class StudentTile extends StatelessWidget {
       child: ListTile(
         contentPadding: EdgeInsets.all(10),
         leading: CircleAvatar(
+          backgroundColor: Colors.black54,
           child: Text(
             (index + 1).toString(),
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           radius: 25,
         ),

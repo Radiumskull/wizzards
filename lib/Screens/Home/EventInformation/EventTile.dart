@@ -11,6 +11,7 @@ class EventTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Card(
+        elevation: 5,
         shape: RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(10.0)),
         child: ListTile(

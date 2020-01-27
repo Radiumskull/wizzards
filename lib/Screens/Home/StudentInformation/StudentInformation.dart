@@ -17,11 +17,15 @@ class _StudentInformationState extends State<StudentInformation> {
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: Colors.red,
+          icon: Icon(Icons.arrow_back_ios),
+          backgroundColor: Color.fromARGB(255, 27, 38, 44),
           onPressed: () {
             Navigator.pop(context);
           },
-          label: Text(" Back "),
+          label: Text(
+            " Back ",
+            style: TextStyle(fontSize: 18),
+          ),
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,

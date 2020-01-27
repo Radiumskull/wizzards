@@ -18,7 +18,7 @@ class _SplashState extends State<Splash> {
           style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
         ),
         image: new Image.asset('assets/images/hogwarts.png'),
-        backgroundColor: Color.fromRGBO(210, 170, 119, 1),
+        backgroundColor: Colors.black12,
         styleTextUnderTheLoader: new TextStyle(),
         photoSize: 100.0,
         onClick: () {},

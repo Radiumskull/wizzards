@@ -10,7 +10,18 @@ class StudentDash extends StatelessWidget {
     return Container(
         padding: EdgeInsets.only(bottom: 40),
         decoration: BoxDecoration(
-            color: Colors.black26,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 20.0, // has the effect of softening the shadow
+                spreadRadius: 5.0, // has the effect of extending the shadow
+                offset: Offset(
+                  10.0, // horizontal, move right 10
+                  10.0, // vertical, move down 10
+                ),
+              )
+            ],
+            color: Colors.black12,
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50))),
@@ -21,7 +32,7 @@ class StudentDash extends StatelessWidget {
               "Students",
               style: TextStyle(
                   fontSize: 48,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
                   color: Colors.black,
                   letterSpacing: 12),
             ),
@@ -32,7 +43,7 @@ class StudentDash extends StatelessWidget {
               "Dashboard",
               style: TextStyle(
                   fontSize: 48,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
                   color: Colors.black,
                   letterSpacing: 12),
             ),

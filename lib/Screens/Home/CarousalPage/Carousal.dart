@@ -12,7 +12,14 @@ class _CarousalState extends State<Carousal> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-          onPressed: () => Navigator.pop(context), label: Text(" Back ")),
+        backgroundColor: Color.fromARGB(255, 27, 38, 44),
+        onPressed: () => Navigator.pop(context),
+        icon: Icon(Icons.arrow_back_ios),
+        label: Text(
+          " Back ",
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
       body: Container(
         height: 400,
         child: ClipRRect(

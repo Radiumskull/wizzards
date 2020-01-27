@@ -18,12 +18,12 @@ class _EventListState extends State<EventList> {
       return Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 20, bottom: 10),
+            padding: EdgeInsets.only(top: 20, bottom: 20),
             child: Text(
               "Events",
               style: TextStyle(
                   fontSize: 48,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
                   color: Colors.black,
                   letterSpacing: 12),
             ),
