@@ -14,10 +14,10 @@ class _SplashState extends State<Splash> {
         seconds: 10,
         navigateAfterSeconds: new AfterSplash(),
         title: new Text(
-          'Welcome to Hogwarts',
-          style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+          'WIZZARDS 2020',
+          style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 36.0),
         ),
-        image: new Image.asset('assets/images/hogwarts.png'),
+        image: new Image.asset('assets/images/wizzards.png'),
         backgroundColor: Colors.black12,
         styleTextUnderTheLoader: new TextStyle(),
         photoSize: 100.0,
