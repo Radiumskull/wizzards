@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wizzards/Models/ColorPallete.dart';
 import 'package:wizzards/Screens/Home/CarousalPage/CarousalPage.dart';
 import 'package:wizzards/Screens/Home/CustomDrawer/LoggedUserInfo.dart';
 import 'package:wizzards/Screens/Home/EventUpdates/EventUpdatesPage.dart';
@@ -6,9 +7,9 @@ import 'package:wizzards/Screens/Home/QuizPage/QuizPage.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentInformation.dart';
 
 class CustomDrawer extends StatefulWidget {
-  final Color secondaryColor;
+  final ColorPallete colorPallete;
   final String house;
-  CustomDrawer(this.secondaryColor, this.house);
+  CustomDrawer(this.colorPallete, this.house);
   @override
   _CustomDrawerState createState() => _CustomDrawerState();
 }
@@ -18,11 +19,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: widget.secondaryColor,
+        color: widget.colorPallete.secondaryColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            LoggedUserInfo(),
+            LoggedUserInfo(widget.colorPallete),
             SizedBox(
               height: 15,
             ),
@@ -50,7 +51,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
-                          builder: (context) => StudentInformation()));
+                          builder: (context) =>
+                              StudentInformation(widget.colorPallete)));
                 },
               ),
             ),
@@ -81,7 +83,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
-                          builder: (context) => EventUpdatesPage()));
+                          builder: (context) =>
+                              EventUpdatesPage(widget.colorPallete)));
                 },
               ),
             ),

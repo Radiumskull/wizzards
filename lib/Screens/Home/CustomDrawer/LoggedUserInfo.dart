@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wizzards/Models/ColorPallete.dart';
 import 'package:wizzards/Models/User.dart';
 
 class LoggedUserInfo extends StatelessWidget {
+  final ColorPallete colorPallete;
+  LoggedUserInfo(this.colorPallete);
   @override
   Widget build(BuildContext context) {
     final userData = Provider.of<UserData>(context);
@@ -76,14 +79,14 @@ class LoggedUserInfo extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white),
+                    color: colorPallete.textColor),
               ),
               Text(
                 userData == null ? "null" : userData.email,
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
-                    color: Colors.white),
+                    color: colorPallete.textColor),
               ),
             ],
           ));

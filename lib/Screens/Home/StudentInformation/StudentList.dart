@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wizzards/Models/ColorPallete.dart';
 import 'package:wizzards/Models/User.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentDash.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentTile.dart';
 
 class StudentList extends StatefulWidget {
+  final ColorPallete colorPallete;
+  StudentList(this.colorPallete);
   @override
   _StudentListState createState() => _StudentListState();
 }
@@ -28,6 +31,7 @@ class _StudentListState extends State<StudentList> {
           StudentDash(
             studentsCounts: students.length,
             vegFood: vegFood,
+            colorPallete: widget.colorPallete,
           ),
           ListView.builder(
             shrinkWrap: true,

@@ -32,9 +32,15 @@ class EventUpdateTile extends StatelessWidget {
                       fontSize: 20,
                       color: Colors.black)),
               ...eventUpdate.eventWinners.split(",").map((name) {
+                Color color;
+                if (name.split("(")[1] == "Hufflepuff)") {
+                  color = Color.fromARGB(255, 255, 157, 10);
+                }
                 return Text(name,
-                    style:
-                        TextStyle(fontWeight: FontWeight.w400, fontSize: 18));
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                        color: color));
               }),
             ],
           ),

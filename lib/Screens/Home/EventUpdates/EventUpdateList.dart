@@ -8,14 +8,17 @@ class EventUpdateList extends StatelessWidget {
   Widget build(BuildContext context) {
     final eventUpdates = Provider.of<List<EventNotification>>(context);
     if (eventUpdates != null) {
-      return ListView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: eventUpdates.length,
-        itemBuilder: (context, index) {
-          return EventUpdateTile(eventUpdate: eventUpdates[index]);
-        },
-      );
+      return Column(children: <Widget>[
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          itemCount: eventUpdates.length,
+          itemBuilder: (context, index) {
+            return EventUpdateTile(eventUpdate: eventUpdates[index]);
+          },
+        )
+      ]);
     } else {
       return Container();
     }

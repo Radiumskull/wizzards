@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wizzards/Models/ColorPallete.dart';
 import 'package:wizzards/Models/User.dart';
 import 'package:wizzards/Services/DatabaseService.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentList.dart';
 
 class StudentInformation extends StatefulWidget {
+  final ColorPallete colorPallete;
+  StudentInformation(this.colorPallete);
   @override
   _StudentInformationState createState() => _StudentInformationState();
 }
@@ -30,10 +33,10 @@ class _StudentInformationState extends State<StudentInformation> {
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(
-            color: Colors.black12,
+            color: widget.colorPallete.secondaryColor,
             child: Column(
               children: <Widget>[
-                StudentList(),
+                StudentList(widget.colorPallete),
               ],
             ),
           ),
