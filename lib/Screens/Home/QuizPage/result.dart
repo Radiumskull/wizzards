@@ -4,10 +4,10 @@ import 'package:wizzards/Models/User.dart';
 import 'package:wizzards/Services/DatabaseService.dart';
 
 class Result extends StatelessWidget {
-  final int resultscoreg;
-  final int resultscorer;
-  final int resultscores;
-  final int resultscoreh;
+  int resultscoreg;
+  int resultscorer;
+  int resultscores;
+  int resultscoreh;
   String finalHouse = "";
   int finalHouseCount = 0;
   void updateHouse(String house, BuildContext context) async {
@@ -34,9 +34,10 @@ class Result extends StatelessWidget {
           houseCounts[3] += 1;
         }
       }
-
       print(houseCounts);
       return houseCounts;
+    } else {
+      return null;
     }
   }
 
@@ -48,18 +49,26 @@ class Result extends StatelessWidget {
           resultscoreg > resultscores) {
         if (houseCounts[0] < 15) {
           finalHouse = "Gryffindor";
+        } else {
+          resultscoreg = 0;
         }
-      } else if (resultscorer > resultscoreg &&
+      }
+      if (resultscorer > resultscoreg &&
           resultscorer > resultscoreh &&
           resultscorer > resultscores) {
         if (houseCounts[2] < 15) {
           finalHouse = "Ravenclaw";
+        } else {
+          resultscorer = 0;
         }
-      } else if (resultscoreh > resultscoreg &&
+      }
+      if (resultscoreh > resultscoreg &&
           resultscoreh > resultscorer &&
           resultscoreh > resultscores) {
         if (houseCounts[1] < 15) {
           finalHouse = "Hufflepuff";
+        } else {
+          resultscoreh = 0;
         }
       } else {
         finalHouse = "Slytherin";
