@@ -23,7 +23,7 @@ class StudentDash extends StatelessWidget {
                   fontSize: 48,
                   fontWeight: FontWeight.w900,
                   color: Colors.black,
-                  letterSpacing: 12),
+                  letterSpacing: 6),
             ),
           ),
           Container(
@@ -34,7 +34,7 @@ class StudentDash extends StatelessWidget {
                   fontSize: 48,
                   fontWeight: FontWeight.w900,
                   color: Colors.black,
-                  letterSpacing: 12),
+                  letterSpacing: 6),
             ),
           ),
           Row(

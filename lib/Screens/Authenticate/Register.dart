@@ -51,7 +51,7 @@ class _RegisterState extends State<Register> {
                           Container(
                               padding: EdgeInsets.only(left: 30, right: 30),
                               child: Text(
-                                "SignUp",
+                                "Sign Up",
                                 style: TextStyle(
                                     fontSize: 48, fontWeight: FontWeight.w800),
                               )),
@@ -100,41 +100,39 @@ class _RegisterState extends State<Register> {
                           GroupedRadioButton(
                             foodToggle: foodToggle,
                           ),
+                          ButtonTheme(
+                            minWidth: 125.0,
+                            height: 50.0,
+                            child: RaisedButton(
+                              color: Colors.black87,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(20.0),
+                              ),
+                              child: Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
+                              ),
+                              onPressed: () async {
+                                if (_formKey.currentState.validate()) {
+                                  setState(() => loading = true);
+                                  dynamic result =
+                                      await _auth.registerWithEmailAndPassword(
+                                          name, email, password, food, "");
+                                  if (result == null) {
+                                    setState(() {
+                                      loading = false;
+                                    });
+                                  }
+                                }
+                              },
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ),
                   Column(children: <Widget>[
-                    ButtonTheme(
-                      minWidth: 125.0,
-                      height: 50.0,
-                      child: RaisedButton(
-                        color: Colors.black87,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(20.0),
-                        ),
-                        child: Text(
-                          "SignUp",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                        onPressed: () async {
-                          if (_formKey.currentState.validate()) {
-                            setState(() => loading = true);
-                            dynamic result =
-                                await _auth.registerWithEmailAndPassword(
-                                    name, email, password, food, "");
-                            if (result == null) {
-                              setState(() {
-                                loading = false;
-                              });
-                            }
-                          }
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: 200,
-                    ),
                     Text(
                       "Already have an account ? ",
                       style: TextStyle(fontSize: 16),
@@ -150,7 +148,7 @@ class _RegisterState extends State<Register> {
                         shape: RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(20.0)),
                         child: Text(
-                          "SignIn",
+                          "Sign In",
                           style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                         onPressed: () {

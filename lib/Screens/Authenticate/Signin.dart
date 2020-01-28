@@ -37,7 +37,7 @@ class _SigninState extends State<Signin> {
                           Container(
                               padding: EdgeInsets.only(left: 30, right: 30),
                               child: Text(
-                                "SignIn",
+                                "Sign In",
                                 style: TextStyle(
                                     fontSize: 48, fontWeight: FontWeight.w800),
                               )),
@@ -73,41 +73,40 @@ class _SigninState extends State<Signin> {
                             error,
                             style: TextStyle(color: Colors.red),
                           ),
+                          ButtonTheme(
+                            minWidth: 125.0,
+                            height: 50.0,
+                            child: RaisedButton(
+                              color: Colors.black87,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(20.0),
+                              ),
+                              child: Text(
+                                "Sign In",
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
+                              ),
+                              onPressed: () async {
+                                if (_formKey.currentState.validate()) {
+                                  setState(() => loading = true);
+                                  dynamic result =
+                                      await _auth.signInWithEmailAndPassword(
+                                          email, password);
+                                  if (result == null) {
+                                    setState(() {
+                                      loading = false;
+                                      error = "Enter Correct Credentials";
+                                    });
+                                  }
+                                }
+                              },
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ),
                   Column(children: <Widget>[
-                    ButtonTheme(
-                      minWidth: 125.0,
-                      height: 50.0,
-                      child: RaisedButton(
-                        color: Colors.black87,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(20.0),
-                        ),
-                        child: Text(
-                          "SignIn",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                        onPressed: () async {
-                          if (_formKey.currentState.validate()) {
-                            setState(() => loading = true);
-                            dynamic result = await _auth
-                                .signInWithEmailAndPassword(email, password);
-                            if (result == null) {
-                              setState(() {
-                                loading = false;
-                                error = "Enter Correct Credentials";
-                              });
-                            }
-                          }
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: 250,
-                    ),
                     Text(
                       "Dont have an account ? ",
                       style: TextStyle(fontSize: 16),
@@ -123,7 +122,7 @@ class _SigninState extends State<Signin> {
                         shape: RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(20.0)),
                         child: Text(
-                          "SignUp",
+                          "Sign Up",
                           style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                         onPressed: () {

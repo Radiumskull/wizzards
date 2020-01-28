@@ -36,7 +36,10 @@ class _StudentListState extends State<StudentList> {
             itemBuilder: (context, index) {
               return (StudentTile(index: index, userData: students[index]));
             },
-          )
+          ),
+          SizedBox(
+            height: 100,
+          ),
         ],
       );
     }

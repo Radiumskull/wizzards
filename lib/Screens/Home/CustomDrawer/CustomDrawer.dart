@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wizzards/Screens/Home/CarousalPage/CarousalPage.dart';
 import 'package:wizzards/Screens/Home/CustomDrawer/LoggedUserInfo.dart';
+import 'package:wizzards/Screens/Home/EventUpdates/EventUpdatesPage.dart';
 import 'package:wizzards/Screens/Home/QuizPage/QuizPage.dart';
 import 'package:wizzards/Screens/Home/StudentInformation/StudentInformation.dart';
 
@@ -23,7 +24,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           children: <Widget>[
             LoggedUserInfo(),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
             ButtonTheme(
               height: 60,
@@ -54,7 +55,38 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 15,
+            ),
+            ButtonTheme(
+              height: 60,
+              child: FlatButton(
+                color: Color(0x3282b8),
+                child: Container(
+                  width: double.infinity,
+                  child: Row(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Icon(Icons.dashboard),
+                      Text(
+                        "Event Updates",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => EventUpdatesPage()));
+                },
+              ),
+            ),
+            SizedBox(
+              height: 15,
             ),
             ButtonTheme(
               height: 60,
@@ -83,6 +115,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 },
               ),
             ),
+            SizedBox(
+              height: 15,
+            ),
             widget.house == ''
                 ? ButtonTheme(
                     height: 60,
@@ -93,7 +128,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           width: double.infinity,
                           child: Row(
                             children: <Widget>[
-                              Icon(Icons.view_carousel),
+                              Icon(Icons.home),
                               Text(
                                 "House Selection",
                                 style: TextStyle(
