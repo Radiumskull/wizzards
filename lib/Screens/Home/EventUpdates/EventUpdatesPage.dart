@@ -70,6 +70,9 @@ class EventUpdatesPage extends StatelessWidget {
                     ),
                   ),
                   EventUpdateList(),
+                  SizedBox(
+                    height: 100,
+                  ),
                 ],
               ),
             ),

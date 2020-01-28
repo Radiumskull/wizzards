@@ -76,6 +76,9 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 PointsChartPage(),
                 EventInformation(),
+                SizedBox(
+                  height: 80,
+                )
               ],
             ),
           ),

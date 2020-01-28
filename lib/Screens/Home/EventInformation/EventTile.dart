@@ -24,9 +24,32 @@ class EventTile extends StatelessWidget {
             ),
             subtitle: Column(
               children: <Widget>[
-                Text(event.eventDetails),
                 Text(
-                    "Start Date : ${event.startDate} End Date : ${event.endDate}"),
+                  event.eventDetails,
+                  style: TextStyle(fontSize: 18),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Start Data : ",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
+                    Text(
+                      event.startDate,
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+                    ),
+                    Text(
+                      "          End Data : ",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
+                    Text(
+                      event.endDate,
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+                    ),
+                  ],
+                )
               ],
             )),
       ),

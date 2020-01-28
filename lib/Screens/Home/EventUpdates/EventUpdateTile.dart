@@ -42,6 +42,9 @@ class EventUpdateTile extends StatelessWidget {
                         fontSize: 18,
                         color: color));
               }),
+              SizedBox(
+                height: 5,
+              )
             ],
           ),
         ),

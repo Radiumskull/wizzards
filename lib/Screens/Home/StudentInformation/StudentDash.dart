@@ -24,7 +24,7 @@ class StudentDash extends StatelessWidget {
               style: TextStyle(
                   fontSize: 48,
                   fontWeight: FontWeight.w900,
-                  color: Colors.white,
+                  color: colorPallete.textColor,
                   letterSpacing: 6),
             ),
           ),
@@ -35,7 +35,7 @@ class StudentDash extends StatelessWidget {
               style: TextStyle(
                   fontSize: 48,
                   fontWeight: FontWeight.w900,
-                  color: Colors.white,
+                  color: colorPallete.textColor,
                   letterSpacing: 6),
             ),
           ),

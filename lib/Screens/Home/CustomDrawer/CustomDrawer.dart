@@ -70,7 +70,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       SizedBox(
                         height: 20,
                       ),
-                      Icon(Icons.dashboard),
+                      Icon(Icons.notifications),
                       Text(
                         "Event Updates",
                         style: TextStyle(
