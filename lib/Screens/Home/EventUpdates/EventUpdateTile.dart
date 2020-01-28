@@ -15,7 +15,7 @@ class EventUpdateTile extends StatelessWidget {
         title: Center(
           child: Text(
             eventUpdate.eventHeadline,
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
           ),
         ),
         subtitle: Center(
@@ -35,11 +35,20 @@ class EventUpdateTile extends StatelessWidget {
                 Color color;
                 if (name.split("(")[1] == "Hufflepuff)") {
                   color = Color.fromARGB(255, 255, 157, 10);
+                } else if (name.split("(")[1] == "Gryffindor)") {
+                  color = Color.fromARGB(255, 102, 0, 0);
+                } else if (name.split("(")[1] == "Ravenclaw)") {
+                  color = Color.fromARGB(255, 25, 57, 136);
+                } else if (name.split("(")[1] == "Slytherin)") {
+                  color = Color.fromARGB(255, 46, 117, 28);
+                } else {
+                  color = Colors.black;
                 }
+                print(name.split("(")[1]);
                 return Text(name,
                     style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
                         color: color));
               }),
               SizedBox(

@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
         colorPallete = ColorPallete(Color.fromARGB(255, 46, 117, 28),
             Color.fromARGB(100, 204, 204, 204), Colors.white);
       } else {
-        colorPallete = ColorPallete(Colors.black, Colors.white, Colors.black);
+        colorPallete = ColorPallete(Colors.black, Colors.white, Colors.white);
       }
 
       return Scaffold(
