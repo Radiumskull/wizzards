@@ -84,10 +84,13 @@ class LoggedUserInfo extends StatelessWidget {
               Text(
                 userData == null ? "null" : userData.email,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w400,
                     color: colorPallete.textColor),
               ),
+              SizedBox(
+                height: 10,
+              )
             ],
           ));
     }

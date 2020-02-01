@@ -149,6 +149,58 @@ class _QuizPageState extends State<QuizPage> {
       ],
     },
     {
+      'questiontext': "Which would you rather be:",
+      "answertext": [
+        {
+          "text": "Envied?",
+          "scoreg": 10,
+          "scorer": 24,
+          "scoreh": 10,
+          "scores": 24,
+        },
+        {
+          "text": "Praised?",
+          "scoreg": 24,
+          "scorer": 11,
+          "scoreh": 11,
+          "scores": 19,
+        },
+        {
+          "text": "Liked?",
+          "scoreg": 15,
+          "scorer": 11,
+          "scoreh": 29,
+          "scores": 10,
+        },
+      ],
+    },
+    {
+      'questiontext': "What are you most looking forward to learning at Hogwarts?",
+      "answertext": [
+        {
+          "text": "Flying on a broomstick",
+          "scoreg": 19,
+          "scorer": 7,
+          "scoreh": 18,
+          "scores": 9,
+        },
+        {
+          "text": "Secrets about the castle",
+          "scoreg": 24,
+          "scorer": 13,
+          "scoreh": 11,
+          "scores": 9,
+        },
+        {
+          "text": "Every area of magic I can",
+          "scoreg": 11,
+          "scorer": 27,
+          "scoreh": 11,
+          "scores": 10,
+        },
+      ],
+    },
+    {
       'questiontext': "Heads or Tails?",
       "answertext": [
         {
@@ -168,21 +220,54 @@ class _QuizPageState extends State<QuizPage> {
       ],
     },
     {
-      'questiontext': "Left or Right?",
+      'questiontext': "Heads or Tails?",
       "answertext": [
         {
-          "text": "Left",
-          "scoreg": 29,
-          "scorer": 70,
-          "scoreh": 29,
-          "scores": 73,
+          "text": "Heads",
+          "scoreg": 27,
+          "scorer": 69,
+          "scoreh": 74,
+          "scores": 27,
         },
         {
-          "text": "Right",
-          "scoreg": 71,
-          "scorer": 30,
-          "scoreh": 71,
-          "scores": 27,
+          "text": "Tails",
+          "scoreg": 73,
+          "scorer": 31,
+          "scoreh": 26,
+          "scores": 74,
+        },
+      ],
+    },
+    {
+      'questiontext': "If you could have any power, which would you choose?",
+      "answertext": [
+        {
+          "text": "The power to read minds",
+          "scoreg": 10,
+          "scorer": 22,
+          "scoreh": 10,
+          "scores": 22,
+        },
+        {
+          "text": "The power of invisibility",
+          "scoreg": 33,
+          "scorer": 10,
+          "scoreh": 14,
+          "scores": 13,
+        },
+        {
+          "text": "The power to change the past",
+          "scoreg": 18,
+          "scorer": 13,
+          "scoreh": 14,
+          "scores": 28,
+        },
+        {
+          "text": "The power to change your appearance at will",
+          "scoreg": 15,
+          "scorer": 28,
+          "scoreh": 14,
+          "scores": 10,
         },
       ],
     },

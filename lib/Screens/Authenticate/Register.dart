@@ -18,6 +18,7 @@ class _RegisterState extends State<Register> {
   bool loading = false;
   bool veg = false;
   bool nonVeg = false;
+  String error = '';
 
   void foodToggle(int value) {
     if (value == 0) {
@@ -27,7 +28,6 @@ class _RegisterState extends State<Register> {
     } else {
       food = "";
     }
-    print(food);
   }
 
   @override
@@ -100,6 +100,10 @@ class _RegisterState extends State<Register> {
                           GroupedRadioButton(
                             foodToggle: foodToggle,
                           ),
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red, fontSize: 16),
+                          ),
                           ButtonTheme(
                             minWidth: 125.0,
                             height: 50.0,
@@ -119,11 +123,13 @@ class _RegisterState extends State<Register> {
                                   dynamic result =
                                       await _auth.registerWithEmailAndPassword(
                                           name, email, password, food, "");
-                                  if (result == null) {
+                                  if (result is String) {
                                     setState(() {
+                                      error = (result.split('.')[0] ) + '.';
                                       loading = false;
                                     });
                                   }
+                                  widget.toggleView();
                                 }
                               },
                             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wizzards/Screens/Authenticate/ForgetPassword.dart';
 import 'package:wizzards/Services/Auth.dart';
 import 'package:wizzards/Shared/Loading.dart';
 
@@ -12,14 +13,15 @@ class Signin extends StatefulWidget {
 
 class _SigninState extends State<Signin> {
   bool loading = false;
+  String email = '';
+  String password = '';
+  String error = '';
 
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    String email = '';
-    String password = '';
-    String error = '';
+
     final AuthService _auth = AuthService();
     return loading
         ? Loading()
@@ -58,7 +60,7 @@ class _SigninState extends State<Signin> {
                           ),
                           TextFormField(
                             validator: (val) =>
-                                val.isEmpty ? 'Enter an Email' : null,
+                                val.isEmpty ? 'Enter an Password' : null,
                             obscureText: true,
                             decoration: InputDecoration(
                                 labelText: "Enter your Password"),
@@ -71,7 +73,7 @@ class _SigninState extends State<Signin> {
                           ),
                           Text(
                             error,
-                            style: TextStyle(color: Colors.red),
+                            style: TextStyle(color: Colors.red, fontSize: 16),
                           ),
                           ButtonTheme(
                             minWidth: 125.0,
@@ -92,10 +94,10 @@ class _SigninState extends State<Signin> {
                                   dynamic result =
                                       await _auth.signInWithEmailAndPassword(
                                           email, password);
-                                  if (result == null) {
+                                  if (result is String) {
                                     setState(() {
+                                      error = (result.split('.')[0] ) + '.';
                                       loading = false;
-                                      error = "Enter Correct Credentials";
                                     });
                                   }
                                 }
@@ -107,6 +109,16 @@ class _SigninState extends State<Signin> {
                     ),
                   ),
                   Column(children: <Widget>[
+                    InkWell(
+                      child: Text("Forget Password?"),
+                      onTap: () {
+                                          Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) =>
+                              ForgetPassword()));
+                      },
+                    ),
                     Text(
                       "Dont have an account ? ",
                       style: TextStyle(fontSize: 16),

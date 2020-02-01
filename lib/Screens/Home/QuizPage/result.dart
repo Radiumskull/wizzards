@@ -49,6 +49,7 @@ class Result extends StatelessWidget {
           resultscoreg > resultscores) {
         if (houseCounts[0] < 15) {
           finalHouse = "Gryffindor";
+          return;
         } else {
           resultscoreg = 0;
         }
@@ -58,6 +59,7 @@ class Result extends StatelessWidget {
           resultscorer > resultscores) {
         if (houseCounts[2] < 15) {
           finalHouse = "Ravenclaw";
+          return;
         } else {
           resultscorer = 0;
         }
@@ -67,6 +69,7 @@ class Result extends StatelessWidget {
           resultscoreh > resultscores) {
         if (houseCounts[1] < 15) {
           finalHouse = "Hufflepuff";
+          return;
         } else {
           resultscoreh = 0;
         }

@@ -61,7 +61,7 @@ class Home extends StatelessWidget {
             ),
           ],
           title: Text(
-            "Wizzards",
+            "Amortentia",
             style: TextStyle(
                 color: colorPallete.textColor,
                 fontSize: 24,

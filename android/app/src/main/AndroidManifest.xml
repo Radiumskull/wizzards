@@ -8,7 +8,7 @@
          <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="wizzards"
+        android:label="Amortentia"
         android:icon="@mipmap/wizzards_icon">
         <activity
             android:name=".MainActivity"

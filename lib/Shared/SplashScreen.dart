@@ -14,7 +14,7 @@ class _SplashState extends State<Splash> {
         seconds: 4,
         navigateAfterSeconds: new AfterSplash(),
         title: new Text(
-          'WIZZARDS 2020',
+          'Amortentia 2020',
           style: new TextStyle(fontWeight: FontWeight.w900, fontSize: 24.0),
         ),
         image: new Image.asset(

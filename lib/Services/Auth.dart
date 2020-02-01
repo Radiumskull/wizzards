@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:wizzards/Models/User.dart';
 import 'package:wizzards/Services/DatabaseService.dart';
 
@@ -28,9 +29,12 @@ class AuthService {
           email: email, password: password);
       FirebaseUser user = result.user;
       return (_userFromFirebaseUser(user));
+
+
     } catch (e) {
-      print(e.toString());
-      return null;
+      PlatformException error = e;
+      return(error.message.toString());
+      
     }
   }
 
@@ -44,8 +48,19 @@ class AuthService {
           .updateUserData(name, email, food, house);
       return (_userFromFirebaseUser(user));
     } catch (e) {
+      PlatformException error = e;
+      return(error.message.toString());
+    }
+  }
+
+
+  @override
+  Future<void> resetPassword(String email) async {
+    try{
+      await _auth.sendPasswordResetEmail(email: email);
+    } catch(e){
       print(e.toString());
       return null;
     }
-  }
+}
 }
