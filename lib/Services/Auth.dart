@@ -28,7 +28,9 @@ class AuthService {
       AuthResult result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
+
       return (_userFromFirebaseUser(user));
+
 
 
     } catch (e) {
@@ -54,7 +56,6 @@ class AuthService {
   }
 
 
-  @override
   Future<void> resetPassword(String email) async {
     try{
       await _auth.sendPasswordResetEmail(email: email);

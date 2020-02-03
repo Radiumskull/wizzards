@@ -10,7 +10,7 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
     if (user == null) {
-      return Scaffold(resizeToAvoidBottomPadding: false, body: Authenticate());
+      return Authenticate();
     } else {
       return StreamProvider<UserData>.value(
         value: DatabaseService(uid: user.uid).userData,

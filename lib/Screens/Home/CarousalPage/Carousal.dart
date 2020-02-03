@@ -22,6 +22,8 @@ class _CarousalState extends State<Carousal> {
       ),
       body: ListView(
         children: <Widget>[
+          Center(child: Text("Neophytes", style: TextStyle(fontSize:48, fontWeight:FontWeight.bold),)),
+          SizedBox(height:20),
           Container(
             height: 400,
             child: ClipRRect(
@@ -56,7 +58,8 @@ class _CarousalState extends State<Carousal> {
             ),
           ),
           SizedBox(height: 15,),
-          Container(padding: EdgeInsets.all(15),child: Text("We take this opportunity to thank the Neophytes team that organised and conducted our freshers party. They have been the  prime inspiration for us to organise Amortentia 2020. We could'nt thank them enough for their constant support and the guidance they provide us alltogether. However, our seniors and we have bonded very well.I hope we could be equally good seniors to this batch of freshers .We wish all of them a great future ahead.\"No matter who we are, all we do is to trace the footprints of the ones who have already walked the path. \" ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),))
+          Container(padding: EdgeInsets.all(15),child: Text("We take this opportunity to thank the Neophytes team that organised and conducted our freshers party. They have been the  prime inspiration for us to organise Amortentia 2020. We could'nt thank them enough for their constant support and the guidance they provide us alltogether. However, our seniors and we have bonded very well.I hope we could be equally good seniors to this batch of freshers .We wish all of them a great future ahead.\"No matter who we are, all we do is to trace the footprints of the ones who have already walked the path. \" ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),)),
+          SizedBox(height:100),
         ],
       ),
     );

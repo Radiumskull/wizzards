@@ -62,7 +62,7 @@ class LoggedUserInfo extends StatelessWidget {
 
       return Container(
           width: double.infinity,
-          height: 250,
+          height: 300,
           color: primaryColor,
           child: Column(
             children: <Widget>[

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:wizzards/Screens/Home/QuizPage/question.dart';
 import 'package:wizzards/Screens/Home/QuizPage/answer.dart';
 

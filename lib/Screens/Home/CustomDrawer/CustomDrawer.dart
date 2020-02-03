@@ -150,6 +150,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ),
                   )
                 : Container(),
+                SizedBox(height:100),
+                Container(
+                  height: 100,
+                  padding: const EdgeInsets.only(top: 30, bottom:10),
+                  child: Column(
+                    // verticalDirection: VerticalDirection.down,
+                    children: <Widget>[
+                      Text("Aritra Bhattacharjee"),
+                      Text("Akashdeep Bhattacharjee")
+                    ],
+                  ),
+                )
           ],
         ),
       ),
