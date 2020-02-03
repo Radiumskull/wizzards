@@ -17,6 +17,7 @@ class StudentDash extends StatelessWidget {
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50))),
         child: Column(children: <Widget>[
+          SizedBox(height:20),
           Container(
             padding: EdgeInsets.only(top: 30),
             child: Text(

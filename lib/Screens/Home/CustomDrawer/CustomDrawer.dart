@@ -22,8 +22,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
         color: widget.colorPallete.secondaryColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            LoggedUserInfo(widget.colorPallete),
+            Column(
+             children :<Widget> [ LoggedUserInfo(widget.colorPallete),
             SizedBox(
               height: 15,
             ),
@@ -150,15 +152,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ),
                   )
                 : Container(),
-                SizedBox(height:100),
+          ]),
                 Container(
-                  height: 100,
                   padding: const EdgeInsets.only(top: 30, bottom:10),
                   child: Column(
                     // verticalDirection: VerticalDirection.down,
                     children: <Widget>[
+                      Text("Credits", style: TextStyle(fontWeight : FontWeight.bold),),
                       Text("Aritra Bhattacharjee"),
-                      Text("Akashdeep Bhattacharjee")
+                      Text("Akashdeep Bhattacharya")
                     ],
                   ),
                 )

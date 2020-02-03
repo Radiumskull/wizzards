@@ -67,7 +67,7 @@ class LoggedUserInfo extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 40,
+                height: 60,
               ),
               // Icon(Icons.person, size: 128,),
               profImage,
