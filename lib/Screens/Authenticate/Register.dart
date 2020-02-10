@@ -15,6 +15,7 @@ class _RegisterState extends State<Register> {
   String email = '';
   String food = '';
   String password = '';
+  String point='0';
   bool loading = false;
   bool veg = false;
   bool nonVeg = false;
@@ -125,7 +126,7 @@ class _RegisterState extends State<Register> {
                                     setState(() => loading = true);
                                     dynamic result =
                                         await _auth.registerWithEmailAndPassword(
-                                            name, email, password, food, "");
+                                            name, email, password, food,"0", "");
                                     if (result is String) {
                                       setState(() {
                                         error = (result.split('.')[0] ) + '.';

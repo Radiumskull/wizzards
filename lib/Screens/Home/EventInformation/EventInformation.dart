@@ -17,7 +17,6 @@ class _EventInformationState extends State<EventInformation> {
       child: Container(
         child: Column(
           children: <Widget>[
-            SizedBox(height:40),
             EventList(),
           ],
         ),

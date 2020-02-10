@@ -9,23 +9,10 @@ class LoggedUserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userData = Provider.of<UserData>(context);
-    Color primaryColor;
     Image profImage;
     if (userData == null) {
-      primaryColor = Colors.white;
       return Container();
     } else {
-      if (userData.house == "hufflepuff") {
-        primaryColor = Color.fromARGB(255, 255, 157, 10);
-      } else if (userData.house == "gryffindor") {
-        primaryColor = Color.fromARGB(255, 102, 0, 0);
-      } else if (userData.house == "ravenclaw") {
-        primaryColor = Color.fromARGB(255, 25, 57, 86);
-      } else if (userData.house == "slytherin") {
-        primaryColor = Color.fromARGB(255, 46, 117, 28);
-      } else if (userData.house == "") {
-        primaryColor = Colors.black;
-      }
       if (userData == null) {
         profImage = Image.asset(
           'assets/images/hogwarts.png',
@@ -62,12 +49,14 @@ class LoggedUserInfo extends StatelessWidget {
 
       return Container(
           width: double.infinity,
-          height: 300,
-          color: primaryColor,
+          // height: 300,
+          padding: EdgeInsets.only(top: 10, bottom: 10),
+          color: colorPallete.primaryColor,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center ,
             children: <Widget>[
               SizedBox(
-                height: 60,
+                height: 50,
               ),
               // Icon(Icons.person, size: 128,),
               profImage,
@@ -78,7 +67,7 @@ class LoggedUserInfo extends StatelessWidget {
                 userData == null ? "null" : userData.name.split(" ")[0],
                 style: TextStyle(
                     fontSize: 28,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     color: colorPallete.textColor),
               ),
               Text(
@@ -87,6 +76,41 @@ class LoggedUserInfo extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                     color: colorPallete.textColor),
+              ),
+
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 150,
+                height: 40,
+               decoration : BoxDecoration(
+                 color: colorPallete.secondaryColor,
+                 borderRadius: BorderRadius.all(Radius.circular(20))
+               ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Points :",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: userData.house == '' ? Colors.black : colorPallete.textColor,
+                        fontSize: 20,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      userData == null ? "0" : userData.point,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: userData.house == '' ? Colors.black : colorPallete.textColor),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 10,

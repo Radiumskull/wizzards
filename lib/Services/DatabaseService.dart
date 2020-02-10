@@ -8,12 +8,13 @@ class DatabaseService {
       Firestore.instance.collection('students');
 
   Future updateUserData(
-      String name, String email, String food, String house) async {
+      String name, String email, String food,String point, String house) async {
     return await studentCollection.document(uid).setData({
       'name': name,
       'email': email,
       'food': food,
       'house': house,
+      'point': point,
     });
   }
 
@@ -30,6 +31,7 @@ class DatabaseService {
           name: doc.data['name'] ?? "",
           email: doc.data['email'] ?? "",
           food: doc.data['food'] ?? "",
+          point: doc.data['point'] ?? "",
           house: doc.data['house']);
     }).toList();
   }
@@ -43,6 +45,7 @@ class DatabaseService {
         name: snapshot.data['name'],
         email: snapshot.data['email'],
         food: snapshot.data['food'],
+        point: snapshot.data['point'],
         house: snapshot.data['house']);
   }
 

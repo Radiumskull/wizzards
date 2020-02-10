@@ -21,151 +21,152 @@ class _CustomDrawerState extends State<CustomDrawer> {
       child: Container(
         color: widget.colorPallete.secondaryColor,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
-             children :<Widget> [ LoggedUserInfo(widget.colorPallete),
-            SizedBox(
-              height: 15,
-            ),
-            ButtonTheme(
-              height: 60,
-              child: FlatButton(
-                color: Color(0x3282b8),
-                child: Container(
-                  width: double.infinity,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Icon(Icons.dashboard),
-                      Text(
-                        "Students Dashboard",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) =>
-                              StudentInformation(widget.colorPallete)));
-                },
+          children : <Widget> [ Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              LoggedUserInfo(widget.colorPallete),
+              SizedBox(
+                height: 15,
               ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            ButtonTheme(
-              height: 60,
-              child: FlatButton(
-                color: Color(0x3282b8),
-                child: Container(
-                  width: double.infinity,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Icon(Icons.notifications),
-                      Text(
-                        "Event Updates",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) =>
-                              EventUpdatesPage(widget.colorPallete)));
-                },
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            ButtonTheme(
-              height: 60,
-              child: FlatButton(
-                color: Color(0x3282b8),
-                child: Center(
+              ButtonTheme(
+                height: 50,
+                child: FlatButton(
+                  color: Color(0x3282b8),
                   child: Container(
                     width: double.infinity,
                     child: Row(
                       children: <Widget>[
-                        Icon(Icons.view_carousel),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Icon(Icons.dashboard),
                         Text(
-                          "Throwback To Neophytes",
+                          "Students Dashboard",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
                   ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) =>
+                                StudentInformation(widget.colorPallete)));
+                  },
                 ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) => CarousalPage()));
-                },
               ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            widget.house == ''
-                ? ButtonTheme(
-                    height: 60,
-                    child: FlatButton(
-                      color: Color(0x3282b8),
-                      child: Center(
-                        child: Container(
-                          width: double.infinity,
-                          child: Row(
-                            children: <Widget>[
-                              Icon(Icons.home),
-                              Text(
-                                "House Selection",
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),
-                              ),
-                            ],
+              SizedBox(
+                height: 15,
+              ),
+              ButtonTheme(
+                height: 60,
+                child: FlatButton(
+                  color: Color(0x3282b8),
+                  child: Container(
+                    width: double.infinity,
+                    child: Row(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Icon(Icons.notifications),
+                        Text(
+                          "Event Updates",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) =>
+                                EventUpdatesPage(widget.colorPallete)));
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              ButtonTheme(
+                height: 60,
+                child: FlatButton(
+                  color: Color(0x3282b8),
+                  child: Center(
+                    child: Container(
+                      width: double.infinity,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.view_carousel),
+                          Text(
+                            "Throwback To Neophytes",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => CarousalPage()));
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              widget.house == ''
+                  ? ButtonTheme(
+                      height: 60,
+                      child: FlatButton(
+                        color: Color(0x3282b8),
+                        child: Center(
+                          child: Container(
+                            width: double.infinity,
+                            child: Row(
+                              children: <Widget>[
+                                Icon(Icons.home),
+                                Text(
+                                  "House Selection",
+                                  style: TextStyle(
+                                      fontSize: 18, fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (context) => QuizPage()));
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            new MaterialPageRoute(
-                                builder: (context) => QuizPage()));
-                      },
+                    )
+                  : Container(),
+            ],),
+                  Container(
+                    height: 100,
+                    padding: const EdgeInsets.only(top: 30, bottom:10),
+                    child: Column(
+                      // verticalDirection: VerticalDirection.down,
+                      children: <Widget>[
+                        Container(
+                        child: Icon(Icons.copyright)),
+                        Text("Aritra Bhattacharjee",style: TextStyle(fontSize: 13),),
+                        Text("Akashdeep Bhattacharya",style: TextStyle(fontSize: 13),)
+                      ],
                     ),
                   )
-                : Container(),
-          ]),
-                Container(
-                  padding: const EdgeInsets.only(top: 30, bottom:10),
-                  child: Column(
-                    // verticalDirection: VerticalDirection.down,
-                    children: <Widget>[
-                      Text("Credits", style: TextStyle(fontWeight : FontWeight.bold),),
-                      Text("Aritra Bhattacharjee"),
-                      Text("Akashdeep Bhattacharya")
-                    ],
-                  ),
-                )
-          ],
-        ),
+          ],),
       ),
     );
   }

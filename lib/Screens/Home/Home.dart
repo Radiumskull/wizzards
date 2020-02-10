@@ -9,15 +9,16 @@ import 'package:wizzards/Services/Auth.dart';
 import 'package:wizzards/Shared/Loading.dart';
 
 class Home extends StatelessWidget {
-  ColorPallete colorPallete;
+  
 
   @override
   Widget build(BuildContext context) {
+    ColorPallete colorPallete;
     AuthService _auth = AuthService();
     final userData = Provider.of<UserData>(context);
 
     if (userData == null) {
-      colorPallete = ColorPallete(Colors.black, Colors.white, Colors.black);
+      colorPallete = ColorPallete(Colors.black, Colors.white, Colors.white);
       return Scaffold(body: Loading());
     } else {
       if (userData.house == "hufflepuff") {
@@ -68,20 +69,30 @@ class Home extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Container(
-            color: colorPallete.secondaryColor,
-            child: Column(
-              children: <Widget>[
-                PointsChartPage(),
-                EventInformation(),
-                SizedBox(
-                  height: 80,
-                )
-              ],
+        body: LayoutBuilder(
+                  builder: (context, constraints) {
+                  
+                  return SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight,
+              ),
+                          child: Container(
+                color: colorPallete.secondaryColor,
+                child: Column(
+                  children: <Widget>[
+                    PointsChartPage(),
+                    EventInformation(),
+                    SizedBox(
+                      height: 80,
+                    )
+                  ],
+                ),
+              ),
             ),
-          ),
+          );
+          }
         ),
       );
     }

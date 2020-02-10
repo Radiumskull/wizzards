@@ -41,13 +41,13 @@ class AuthService {
   }
 
   Future registerWithEmailAndPassword(String name, String email,
-      String password, String food, String house) async {
+      String password, String food,String point, String house) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
       await DatabaseService(uid: user.uid)
-          .updateUserData(name, email, food, house);
+          .updateUserData(name, email, food,point,house);
       return (_userFromFirebaseUser(user));
     } catch (e) {
       PlatformException error = e;

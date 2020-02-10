@@ -30,18 +30,23 @@ class _StudentInformationState extends State<StudentInformation> {
             style: TextStyle(fontSize: 18),
           ),
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Container(
-            color: widget.colorPallete.secondaryColor,
-            child: Column(
-              children: <Widget>[
-                StudentList(widget.colorPallete),
-              ],
+        body: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                          child: Container(
+                color: widget.colorPallete.secondaryColor,
+                child: Column(
+                  children: <Widget>[
+                    StudentList(widget.colorPallete),
+                  ],
+                ),
+              ),
             ),
-          ),
+          );}
         ),
-      ),
-    );
+      ));
   }
 }

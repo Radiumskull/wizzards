@@ -41,7 +41,7 @@ class StudentTile extends StatelessWidget {
           userData.name,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
         ),
-        subtitle: Text("${userData.email}\nFood: ${userData.food}"),
+        subtitle: Text("${userData.email}\nPoints Scored: ${userData.point}"),
       ),
     );
   }

@@ -19,12 +19,7 @@ class _StudentListState extends State<StudentList> {
     final students = Provider.of<List<UserData>>(context);
     if (students == null) {
       return Container();
-    } else {
-      for (int i = 0; i < students.length; i++) {
-        if (students[i].food == "Veg") {
-          vegFood += 1;
-        }
-      }
+    }
       return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -48,4 +43,3 @@ class _StudentListState extends State<StudentList> {
       );
     }
   }
-}
